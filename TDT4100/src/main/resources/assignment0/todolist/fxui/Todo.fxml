@@ -9,7 +9,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Button?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="oving0.todolist.fxui.TodoController">
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignment0.todolist.fxui.TodoController">
     <fx:define>
         <String fx:id="sampleTodoListResource" fx:value="sample-todolist.todo"/>
     </fx:define>

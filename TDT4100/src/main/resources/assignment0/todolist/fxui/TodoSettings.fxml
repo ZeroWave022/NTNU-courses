@@ -8,7 +8,7 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Button?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="oving0.todolist.fxui.TodoSettingsController">
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignment0.todolist.fxui.TodoSettingsController">
 	<GridPane>
 		<Label text="List order" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
 		<ChoiceBox fx:id="listOrderSelector" GridPane.rowIndex="0" GridPane.columnIndex="1" onAction="#handleListOrderSelection"/>
