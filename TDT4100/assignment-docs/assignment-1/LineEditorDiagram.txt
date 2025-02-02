@@ -1,0 +1,34 @@
+@startuml
+state "LineEditor" as editor1
+editor1: text = ""
+editor1: insertionIndex = 0
+
+state "LineEditor" as editor2
+editor2: text = "Example Text"
+editor2: insertionIndex = 0
+
+state "LineEditor" as editor3
+editor3: text = "Example Text"
+editor3: insertionIndex = 8
+
+state "LineEditor" as editor4
+editor4: text = "Example "
+editor4: insertionIndex = 8
+
+state "LineEditor" as editor5
+editor5: text = "Example Title"
+editor5: insertionIndex = 13
+
+[*] --> editor1
+
+editor1 --> editor1: toString() => "|"
+editor1 --> editor2: setText("Example Text")
+editor2 --> editor2: toString() => "|Example Text"
+editor2 --> editor3: 8 x right()
+editor3 --> editor3: toString() => "Example |Text"
+editor3 --> editor4: 4 x deleteRight()
+editor4 --> editor4: toString() => "Example |"
+editor4 --> editor5: insertString("Title")
+editor5 --> editor5: toString() => "Example Title|"
+editor5 --> [*]
+@enduml
