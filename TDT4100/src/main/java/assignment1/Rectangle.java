@@ -1,12 +1,12 @@
 package assignment1;
 
 public class Rectangle {
-    int width;
-    int height;
-    int minX;
-    int maxX;
-    int minY;
-    int maxY;
+    public int width;
+    public int height;
+    public int minX;
+    public int maxX;
+    public int minY;
+    public int maxY;
 
     public Rectangle(int x1, int y1, int x2, int y2) {
         this.minX = Math.min(x1, x2);

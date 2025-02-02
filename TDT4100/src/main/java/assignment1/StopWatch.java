@@ -3,12 +3,12 @@ package assignment1;
 import java.util.ArrayList;
 
 public class StopWatch {
-    boolean started;
-    boolean stopped;
-    int startedAt;
-    int stoppedAt;
-    int ticks;
-    ArrayList<Integer> laps;
+    public boolean started;
+    public boolean stopped;
+    public int startedAt;
+    public int stoppedAt;
+    public int ticks;
+    public ArrayList<Integer> laps;
 
     public StopWatch() {
         this.started = false;

@@ -1,8 +1,8 @@
 package assignment1;
 
 public class LineEditor {
-    String text;
-    int insertionIndex;
+    public String text;
+    public int insertionIndex;
 
     public LineEditor() {
         this.text = "";
