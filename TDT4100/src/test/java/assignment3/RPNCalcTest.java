@@ -1,4 +1,4 @@
-package oving3;
+package assignment3;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;

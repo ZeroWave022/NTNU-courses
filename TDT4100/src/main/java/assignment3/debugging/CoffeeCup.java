@@ -1,4 +1,4 @@
-package oving3.debugging;
+package assignment3.debugging;
 
 public class CoffeeCup {
 

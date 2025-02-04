@@ -1,4 +1,4 @@
-package oving4.testing;
+package assignment4.testing;
 
 public class CoffeeCup {
 
