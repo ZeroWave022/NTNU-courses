@@ -11,7 +11,7 @@ public class VehicleTest {
 
 	private void checkVehicleState(char vehicleType, char fuelType, String registrationNumber,
 			Vehicle vehicle) {
-		assertEquals(vehicleType, vehicle.getVehicleType());
+		assertEquals(vehicleType, vehicle.getType());
 		assertEquals(fuelType, vehicle.getFuelType());
 		assertEquals(registrationNumber, vehicle.getRegistrationNumber());
 	}

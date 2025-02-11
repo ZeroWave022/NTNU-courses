@@ -19,7 +19,15 @@ Les [wikisiden om innkapsling](https://www.ntnu.no/wiki/display/tdt4100/Innkapsl
 
 - Hva er en **synlighetsmodifikator**?
 
+Synlighetsmodifikatorer er nøkkelord (keywords) som spesifiserer om et felt eller metode er offentlig tilgjengelig eller ikke.
+
 - Hva er forskjellen på **private** og **public** og når brukes de?
+
+I Java bruker vi:
+
+- `private` for å gjøre noe usynlig for alle, untatt objekter av denne klassen.
+- `public` for å gjøre noe synlig for alle
+- Vi kan også ikke spesifisere noe. Da vil feltet/metoden være synlig for alle klasser i den samme pakken.
 
 Teori-oppgavene besvares i en tekstfil eller på papir, og gjennomgås med studass ved godkjenning.
 
