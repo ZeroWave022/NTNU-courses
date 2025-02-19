@@ -22,6 +22,9 @@ public class CoffeeCupProgram {
 		this.cup.drinkCoffee(Math.ceil(this.r.nextDouble() * 38.9));
 		this.cup.drinkCoffee(Math.ceil(this.r.nextDouble() * 42));
 		this.cup.increaseCupSize(17);
+		// Vi får en feilmelding på den neste linjen her.
+		// På dette tidspunktet har vi et volum på 5, men vi prøver å drikke 40.
+		// Dette fører til et unntak.
 		this.cup.drinkCoffee(40);
 		this.cup.drinkCoffee(Math.ceil(this.r.nextDouble() * 42));
 		this.cup.drinkCoffee(Math.floor(this.r.nextDouble() * 20.5));
@@ -39,6 +42,9 @@ public class CoffeeCupProgram {
 		this.cup.drinkCoffee(Math.ceil(this.r.nextDouble() * 38.9));
 		this.cup.drinkCoffee(Math.ceil(this.r.nextDouble() * 42));
 		this.cup.increaseCupSize(Math.floor(this.r.nextDouble() * 26));
+		// Den neste linjen fører til en feil.
+		// Vi prøver å fylle opp koppen med mer kaffe enn kapasiteten på 40.
+		// Unntakstype: IllegalArgumentExpection
 		this.cup.fillCoffee(Math.ceil(this.r.nextDouble() * 59));
 		this.cup.drinkCoffee(Math.ceil(this.r.nextDouble() * 42));
 		this.cup.increaseCupSize(Math.floor(this.r.nextDouble() * 35));

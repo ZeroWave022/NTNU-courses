@@ -1,5 +1,7 @@
 package assignment3;
 
+import java.util.List;
+
 /**
  * The {@code Card} class is a so-called value-based class, which is coded in
  * such a way that its
@@ -7,6 +9,8 @@ package assignment3;
  * a suit and a face.
  */
 public class Card {
+    private char suit;
+    private int face;
 
     /**
      * The constructor of the {@code Card} class initializes the suit and face of
@@ -24,23 +28,35 @@ public class Card {
      * @see {@link CardTest#testConstructor}
      */
     public Card(char suit, int face) {
-        // TODO: implement this constructor
+        this.validateValues(suit, face);
+        this.suit = suit;
+        this.face = face;
+    }
+
+    private boolean validateValues(char suit, int face) throws IllegalArgumentException {
+        if (!List.of('S', 'H', 'D', 'C').contains(suit)) {
+            throw new IllegalArgumentException("Incorrect char suit provided.");
+        }
+
+        if (face < 1 || face > 13) {
+            throw new IllegalArgumentException("Incorrect face integer provided");
+        }
+
+        return true;
     }
 
     /**
      * @return the suit of the card
      */
     public char getSuit() {
-        // TODO: implement this method
-        return '\0';
+        return this.suit;
     }
 
     /**
      * @return the face of the card
      */
     public int getFace() {
-        // TODO: implement this method
-        return 0;
+        return this.face;
     }
 
     /**
@@ -52,8 +68,7 @@ public class Card {
      */
     @Override
     public String toString() {
-        // TODO: implement this method
-        return null;
+        return this.suit + String.valueOf(this.face);
     }
 
     public static void main(String[] args) {

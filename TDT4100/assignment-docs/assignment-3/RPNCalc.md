@@ -55,14 +55,27 @@ Til nå har det blitt spesifisert at `peek()` og `pop()`-metodene skal returnere
 Svar på følgende:
 
 - Hvilken type unntak vil det være naturlig å bruke?
+
+Det ville vært naturlig å returnere `IllegalArgumentException`.
+
 - Hvilke fordeler og ulemper ser du for dette alternativet?
+
+Fordelen er at vi slipper å se på spesielle cases i koden for klassen vår. Ulempen er derimot at andre klasser må tenke på at deres bruk av funksjonene er alltid riktig, og må fikse unntakshåndtering selv.
 
 Det er også spesifisert at en skal "håndtere manglende operander på en måte som gir mening for operasjonen". Hvis `+`-operasjonen ble utført på kun én operand, så kan en f.eks. velge å la den manglende operanden være `0`.
 
 Svar på følgende:
 
 - Hva vil tilsvarende verdi for manglende operand for `*`-operasjonen (multiplikasjon) være? Hva med for `/` (divisjon)?
+
+For `*`- og `/`-operanden ville det vært naturlig å multiplisere eller dele på 1. Da enderer vi i praksis ikke noe, untatt det at vi må fjerne siste element i stacken.
+
 - Hvordan kan du endre (evt. har du endret) grensesnittet for stack-operasjonene for å gjøre implementasjonen av disse enklere?
+
+Ja, hvis vi ikke har nok elementer, så fjerner jeg bare siste elementet.
+
 - Også her er et alternativ å utløse unntak. Hva tror du om det?
+
+Det ville ført til flere problemer i andre klasser enn det er verdt det. Det er bedre, synes jeg, å bare tenke på denne casen i koden til klassen slik at alle andre slipper å tenke på det.
 
 Testkode for denne oppgaven finner du i [oving3/RPNCalcTest.java](../../src/test/java/oving3/RPNCalcTest.java).

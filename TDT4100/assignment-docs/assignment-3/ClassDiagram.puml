@@ -1,0 +1,35 @@
+@startuml
+title TDT4100: RPNCalc & CardDeck, øving 3
+scale 5
+
+class RPNCalc {
+    - stack: Stack<Double>
+
+    + push(num: double): double
+    + pop(): void
+    + peek(index: int): double
+    + performOperation(operation: char): void
+    + getSize(): int
+}
+
+class Card {
+    - suit: char
+    - face: int
+
+    + Card(suit: char, face: int)
+    - validateValues(char suit, int face): boolean
+    + getSuit(): char 
+    + getFace(): int
+}
+
+class CardDeck {
+    - cards: ArrayList<Card>
+
+    + CardDeck(int n)
+    + getCardCount(): int
+    + getCard(int index): Card
+    + shufflePerfectly(): void
+}
+
+CardDeck o-- "0..52 " Card
+@enduml
