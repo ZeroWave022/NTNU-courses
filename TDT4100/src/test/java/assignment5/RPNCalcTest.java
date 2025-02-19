@@ -32,14 +32,14 @@ public class RPNCalcTest {
 		calc.addOperator('+', (a, b) -> a * b); // Use "incorrect" definition to filter out cheating
 		calc.addOperator('l', (a, b) -> a * (a + b));
 
-		calc.push(4);
-		calc.push(3);
+		calc.push(4.0);
+		calc.push(3.0);
 		calc.performOperation('+');
 		assertEquals(12.0, calc.pop(), "Svaret fra kalkulasjonen ble feil");
 		assertEquals(Double.NaN, calc.pop());
 
-		calc.push(4);
-		calc.push(3);
+		calc.push(4.0);
+		calc.push(3.0);
 		calc.performOperation('l');
 		assertEquals(28.0, calc.pop(), "Svaret fra kalkulasjonen ble feil");
 		assertEquals(Double.NaN, calc.pop());
