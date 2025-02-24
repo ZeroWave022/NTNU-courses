@@ -1,0 +1,38 @@
+@startuml
+title TDT4100: StopWatch, øving 4
+scale 5
+
+class StopWatchManager {
+    - stopwatches: Map<String, StopWatch>
+
+    + newStopWatch(name: String): StopWatch
+    + removeStopWatch(name: String): void
+    + tick(ticks: int): void
+    + getStopWatch(name: String): StopWatch
+    + getAllWatches(): Collection<StopWatch>
+    + getStartedWatches(): Collection<StopWatch>
+    + getStoppedWatches(): Collection<StopWatch>
+}
+
+class StopWatch {
+    - started: boolean
+    - stopped: boolean
+    - startedAt: int
+    - stoppedAt: int
+    - ticks: int
+    - laps: ArrayList<Integer>
+
+    + isStarted(): boolean
+    + isStopped(): boolean
+    + getTicks(): int
+    + getTime(): int
+    + getLapTime(): int
+    + getLastLapTime(): int
+    + tick(ticks: int): void
+    + start(): void
+    + lap(): void
+    + stop(): void
+}
+
+StopWatchManager o-- "0..* " StopWatch
+@enduml
