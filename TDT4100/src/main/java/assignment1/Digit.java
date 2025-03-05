@@ -37,8 +37,4 @@ public class Digit {
     public int getValue() {
         return value;
     }
-
-    public static void main(String[] args) {
-        Digit d = new Digit(10);
-    }
 }

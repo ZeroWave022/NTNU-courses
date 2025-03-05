@@ -64,7 +64,7 @@ public class TodoController {
 		final var todoList = new TodoList();
 		todoList.setName("todo list");
 		setTodoList(todoList);
-		todoListEntriesView.getSelectionModel().selectedItemProperty().addListener((prop, oldValue, newValue) -> {
+		todoListEntriesView.getSelectionModel().selectedItemProperty().addListener((_, _, _) -> {
 			handleTodoListEntriesViewSelectedItemChanged();
 		});
 		handleTodoListEntriesViewSelectedItemChanged();
