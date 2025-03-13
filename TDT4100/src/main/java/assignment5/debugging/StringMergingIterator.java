@@ -28,15 +28,19 @@ public class StringMergingIterator implements Iterator<String> {
 		String result = null;
 
 		if (!this.first.hasNext()) {
-			result = this.first.next();
-		} else if (!this.second.hasNext()) {
+			// Feil 1: Vi må kalle second istedenfor first etter sjekken
 			result = this.second.next();
+		} else if (!this.second.hasNext()) {
+			// Feil 2: Vi må kalle first istedenfor second etter sjekken
+			result = this.first.next();
 		} else {
 			if (this.turnSwitch) {
 				result = this.first.next();
 				this.turnSwitch = false;
 			}
-			if (!this.turnSwitch) {
+			// Feil 3: Vi endrer på verdien av turnSwitch,
+			// dermed er det viktig å bruke else if istedenfor if
+			else if (!this.turnSwitch) {
 				result = this.second.next();
 				this.turnSwitch = true;
 			}

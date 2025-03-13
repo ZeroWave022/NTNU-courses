@@ -1,0 +1,59 @@
+@startuml
+title TDT4100: StringMergingIterator, øving 5
+scale 2
+
+actor Programmerer as User
+participant "1: StringMergingIteratorDiagram" as Iter
+participant "2: first: Iterator<String>" as First
+participant "3: second: Iterator<String>" as Second
+
+User --> Iter: Sammenflett iterators first og second
+Iter --> First: hasNext()
+First --> Iter: true
+Iter --> Second: hasNext()
+Second --> Iter: true
+Iter --> Iter: turnSwitch is true
+Iter --> First: next()
+First --> Iter: 'a'
+Iter --> Iter: set turnSwitch to false
+Iter --> User: 'a'
+
+User --> Iter: Fortsett
+Iter --> First: hasNext()
+First --> Iter: true
+Iter --> Second: hasNext()
+Second --> Iter: true
+Iter --> Iter: turnSwitch is false
+Iter --> Second: next()
+Second --> Iter: 'c'
+Iter --> Iter: set turnSwitch to true
+Iter --> User: 'c'
+
+
+User --> Iter: Fortsett
+Iter --> First: hasNext()
+First --> Iter: true
+Iter --> Second: hasNext()
+Second --> Iter: true
+Iter --> Iter: turnSwitch is true
+Iter --> First: next()
+First --> Iter: 'b'
+Iter --> Iter: set turnSwitch to false
+Iter --> User: 'b'
+
+
+User --> Iter: Fortsett
+Iter --> First: hasNext()
+First --> Iter: false
+Iter --> Second: next()
+Second --> Iter: 'd'
+Iter --> User: 'd'
+
+User --> Iter: Fortsett
+Iter --> First: hasNext()
+First --> Iter: false
+Iter --> Second: next()
+Second --> Iter: 'e'
+Iter --> User: 'e'
+
+@enduml
