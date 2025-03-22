@@ -29,6 +29,12 @@ ELLER *minst én* av oppgavene om observatør-observert-teknikken:
 
 **I tillegg til oppgaven(e) ovenfor skal du levere en tekstfil hvor du gjør kort rede for delegeringsteknikken og observatør-observert-teknikken.**
 
+Delegeringsteknikken innebærer å ha en klasse som styrer over andre klasser. Her er det ofte slik at en klasse har "ansvar" over de andre.
+Dette brukes ofte i situasjoner der man skal manage flere klasser av samme type og lignende. For eksempel kan en mananger ha ansvaret for flere ansatte.
+
+Observatør-observert-teknikken brukes når vi ønsker å informere klasser om endringer som skjer i separate systemer.
+Dette kan for eks. være at et mål ble scoret i en fotballkamp - dette kan skje når som helst, men vi ønsker for eks. å informere en fotballkamp-objektet og fotballspiller-objektene om dette.
+
 ### Del 2: Objektdiagram
 
 For en av oppgavene du gjorde i del 1:

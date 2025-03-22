@@ -1,0 +1,45 @@
+@startuml
+title TDT4100: StockIndex, øving 6
+scale 2
+
+object "1: StockIndex" as MyIndex {
+    name = "My index"
+    index = 650
+}
+
+object "2: StockIndex" as NorwegianIndex {
+    name = "Norwegian index"
+    index = 250
+}
+
+object "1: Stock" as AAPL {
+    ticker = "AAPL"
+    price = 200
+}
+
+object "2: Stock" as MSFT {
+    ticker = "MSFT"
+    price = 450
+}
+
+object "3: Stock" as EQNR {
+    ticker = "EQNR"
+    price = 180
+}
+
+object "4: Stock" as NHY {
+    ticker = "NHY"
+    price = 70
+}
+
+MyIndex --> "stocks" AAPL
+MyIndex --> "stocks" MSFT
+AAPL --> "listeners" MyIndex
+MSFT --> "listeners" MyIndex
+
+NorwegianIndex --> "stocks" EQNR
+NorwegianIndex --> "stocks" NHY
+EQNR --> "listeners" NorwegianIndex
+NHY --> "listeners" NorwegianIndex
+
+@enduml
