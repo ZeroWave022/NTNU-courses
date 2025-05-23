@@ -1,4 +1,4 @@
-# Course TDT4109 - Information Technology, Introduction
+# Course TDT4109 - Information Technology, Introduction (Fall 2024)
 
 Course info available in [Norwegian](https://www.ntnu.no/studier/emner/TDT4109) and [English](https://www.ntnu.edu/studies/courses/TDT4109).
 
