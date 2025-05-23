@@ -1,7 +1,5 @@
 package assignment7.abstractaccount;
 
-import assignment7.abstractaccount.CreditAccountTest;
-
 /**
  * A {@code CreditAccount} has in addition to {@code balance} a state for
  * {@code creditLine}, i.e.
@@ -16,7 +14,7 @@ import assignment7.abstractaccount.CreditAccountTest;
  */
 public class CreditAccount extends AbstractAccount {
 
-    // TODO: Add fields here
+    private double creditLine;
 
     /**
      * Initializes a new {@code CreditAccount} with the specified credit line.
@@ -25,10 +23,17 @@ public class CreditAccount extends AbstractAccount {
      * @throws IllegalArgumentException if the credit line is negative
      */
     public CreditAccount(double creditLine) {
-        // TODO: Implement this constructor
+        if (creditLine < 0)
+            throw new IllegalArgumentException("Credit line cannot be negative");
+        this.creditLine = creditLine;
     }
 
-    // TODO: Override abstract method here
+    @Override
+    public void withdraw(double amount) {
+        if (this.balance - amount < -this.creditLine)
+            throw new IllegalArgumentException("Cannot withdraw more than the credit line allows.");
+        super.withdraw(amount);
+    }
 
     /**
      * @return the credit line
@@ -36,8 +41,7 @@ public class CreditAccount extends AbstractAccount {
      * @see CreditAccountTest#testCreditLine()
      */
     public double getCreditLine() {
-        // TODO: Implement this method
-        return 0.0;
+        return this.creditLine;
     }
 
     /**
@@ -51,6 +55,11 @@ public class CreditAccount extends AbstractAccount {
      * @see CreditAccountTest#testCreditLine()
      */
     public void setCreditLine(double creditLine) {
-        // TODO: Implement this method
+        if (creditLine < 0)
+            throw new IllegalArgumentException("Credit line cannot be negative");
+        if (this.balance < -creditLine)
+            throw new IllegalStateException(
+                    "Cannot change credit line to a new value that doesn't cover current credit.");
+        this.creditLine = creditLine;
     }
 }

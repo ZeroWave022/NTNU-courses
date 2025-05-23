@@ -14,6 +14,10 @@ package assignment7.abstractaccount;
  * @see AbstractAccount
  */
 public class DebitAccount extends AbstractAccount {
-
-    // TODO: Override abstract method here
+    @Override
+    public void withdraw(double amount) {
+        if (this.balance < amount)
+            throw new IllegalArgumentException("Cannot withdraw more than the available balance.");
+        super.withdraw(amount);
+    }
 }

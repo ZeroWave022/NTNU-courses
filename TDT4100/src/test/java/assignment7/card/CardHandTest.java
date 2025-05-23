@@ -9,6 +9,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import assignment5.Card;
+import assignment5.CardContainer;
+
 public class CardHandTest {
 
 	private Card c2;

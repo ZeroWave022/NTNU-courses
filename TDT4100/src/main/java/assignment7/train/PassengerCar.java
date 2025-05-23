@@ -1,7 +1,5 @@
 package assignment7.train;
 
-import assignment7.train.PassengerCarTest;
-
 /**
  * One of two different types of train cars, both specialized versions for
  * different purposes. A
@@ -12,7 +10,7 @@ import assignment7.train.PassengerCarTest;
  */
 public class PassengerCar extends TrainCar {
 
-    // TODO: Add fields here
+    private int passengerCount;
 
     /**
      * Constructor for the passenger car.
@@ -25,8 +23,8 @@ public class PassengerCar extends TrainCar {
      * @see PassengerCarTest#testWeight()
      */
     public PassengerCar(int deadWeight, int passengerCount) {
-        // TODO: Implement this constructor
         super(deadWeight);
+        this.passengerCount = passengerCount;
     }
 
     /**
@@ -35,8 +33,7 @@ public class PassengerCar extends TrainCar {
      * @see PassengerCarTest#testWeight()
      */
     public int getPassengerCount() {
-        // TODO: Implement this method
-        return 0;
+        return this.passengerCount;
     }
 
     /**
@@ -46,26 +43,21 @@ public class PassengerCar extends TrainCar {
      * @see PassengerCarTest#testWeight()
      */
     public void setPassengerCount(int passengerCount) {
-        // TODO: Implement this method
+        if (passengerCount < 0)
+            throw new IllegalArgumentException("Passenger count cannot be negative.");
+        this.passengerCount = passengerCount;
     }
 
     @Override
     public int getTotalWeight() {
         // To calculate the total weight of the passenger car, you can assume that an
-        // average
-        // passenger weighs 80 kg
-
-        // TODO: Implement this method
-        return 0;
+        // average passenger weighs 80 kg
+        return this.getDeadWeight() + this.passengerCount * 80;
     }
 
     @Override
     public String toString() {
-        // TODO: Implement this method
-        return null;
-    }
-
-    public static void main(String[] args) {
-
+        return String.format("PassengerCar | Dead weight: %d | Passengers: %d | Total weight: %d",
+                this.getDeadWeight(), this.passengerCount, this.getTotalWeight());
     }
 }

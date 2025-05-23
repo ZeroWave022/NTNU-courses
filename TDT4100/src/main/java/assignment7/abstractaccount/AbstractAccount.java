@@ -18,10 +18,8 @@ package assignment7.abstractaccount;
 public abstract class AbstractAccount {
 
     // AbstractAccount has a state {@code balance} for the account balance. The
-    // balance should
-    // either be set to 0.0 by default or in the constructor
-
-    // TODO: Add fields and potentially a constructor here
+    // balance should either be set to 0.0 by default or in the constructor
+    protected double balance = 0;
 
     /**
      * Decreases the account balance by the specified amount. Note that the rules
@@ -33,7 +31,9 @@ public abstract class AbstractAccount {
      * @param amount the amount to withdraw
      * @throws IllegalArgumentException if the amount cannot be withdrawn
      */
-    // TODO: Define abstract method {@code void internalWithdraw} here
+    private void internalWithdraw(double amount) {
+        this.balance -= amount;
+    }
 
     /**
      * Increases the account balance by the specified amount.
@@ -42,7 +42,9 @@ public abstract class AbstractAccount {
      * @throws IllegalArgumentException if the amount is not positive
      */
     public void deposit(double amount) {
-        // TODO: Implement this method
+        if (amount < 0)
+            throw new IllegalArgumentException("Cannot deposit a negative amount");
+        this.balance += amount;
     }
 
     /**
@@ -54,14 +56,15 @@ public abstract class AbstractAccount {
      * @throws IllegalArgumentException if the amount is not positive
      */
     public void withdraw(double amount) {
-        // TODO: Implement this method
+        if (amount < 0)
+            throw new IllegalArgumentException("Cannot withdraw a negative amount");
+        this.internalWithdraw(amount);
     }
 
     /**
      * @return the current balance of the account
      */
     public double getBalance() {
-        // TODO: Implement this method
-        return 0.0;
+        return this.balance;
     }
 }

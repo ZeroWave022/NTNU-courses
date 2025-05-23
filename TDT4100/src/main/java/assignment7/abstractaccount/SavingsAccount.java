@@ -15,7 +15,9 @@ package assignment7.abstractaccount;
  */
 public class SavingsAccount extends AbstractAccount {
 
-    // TODO: Add fields here
+    private int withdrawals;
+    private int withdrawalsUsed;
+    private double fee;
 
     /**
      * Initializes a new {@code SavingsAccount} with the specified number of
@@ -27,8 +29,18 @@ public class SavingsAccount extends AbstractAccount {
      *                                  negative
      */
     public SavingsAccount(int withdrawals, double fee) {
-        // TODO: Implement this constructor
+        this.withdrawals = withdrawals;
+        this.fee = fee;
     }
 
-    // TODO: Override abstract method here
+    @Override
+    public void withdraw(double amount) {
+        if (withdrawalsUsed >= withdrawals) {
+            amount += fee;
+        }
+        if (amount > this.balance)
+            throw new IllegalArgumentException("Cannot withdraw more than balance (possibly including fee)");
+        this.withdrawalsUsed++;
+        super.withdraw(amount);
+    }
 }

@@ -1,13 +1,11 @@
 package assignment7.train;
 
-import assignment7.train.TrainCarTest;
-
 /**
  * The class {@code TrainCar} represents a simple and general train car.
  */
 public class TrainCar {
 
-    // TODO: Add fields here
+    private int deadWeight;
 
     /**
      * Constructor for a train car.
@@ -18,7 +16,9 @@ public class TrainCar {
      * @see TrainCarTest#testDeadWeight()
      */
     public TrainCar(int deadWeight) {
-        // TODO: Implement this constructor
+        if (deadWeight < 0)
+            throw new IllegalArgumentException("Dead weight of train car cannot be negative.");
+        this.deadWeight = deadWeight;
     }
 
     /**
@@ -30,7 +30,10 @@ public class TrainCar {
      * @see TrainCarTest#testDeadWeight()
      */
     public void setDeadWeight(int deadWeight) {
-        // TODO: Implement this method
+        if (deadWeight < 0)
+            throw new IllegalArgumentException("Dead weight of train car cannot be negative.");
+
+        this.deadWeight = deadWeight;
     }
 
     /**
@@ -41,8 +44,7 @@ public class TrainCar {
      * @see TrainCarTest#testDeadWeight()
      */
     public int getDeadWeight() {
-        // TODO: Implement this method
-        return 0;
+        return this.deadWeight;
     }
 
     /**
@@ -55,8 +57,7 @@ public class TrainCar {
      * @see TrainCarTest#testDeadWeight()
      */
     public int getTotalWeight() {
-        // TODO: Implement this method
-        return 0;
+        return this.deadWeight;
     }
 
     /**
@@ -70,11 +71,6 @@ public class TrainCar {
      */
     @Override
     public String toString() {
-        // TODO: Implement this method
-        return null;
-    }
-
-    public static void main(String[] args) {
-
+        return String.format("TrainCar | Dead weight: %d", this.deadWeight);
     }
 }
