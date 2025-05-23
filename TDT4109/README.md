@@ -7,4 +7,4 @@ All materials will be posted in their original language. In this case, this is N
 Originally, each assignment had an `assets` folder.
 This has been moved, as it seems to include the same assets for all assignments and the links inside the Jupyter notbooks have been updated.
 
-Each assignment has three folders. The `tasks` folder contain the tasks themselves, the `solutions` folder contains my own solutions and `suggested-solutions` are the solutions provided by the instituion after the delivery deadline.
+Each assignment has three folders. The `tasks` folder contain the tasks themselves, the `solutions` folder contains my own solutions and `suggested-solutions` are the solutions provided by the institution after the delivery deadline.
