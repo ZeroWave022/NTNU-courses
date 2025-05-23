@@ -1,0 +1,35 @@
+@startuml card
+
+skinparam dpi 400
+
+class Card {
+    - char suit
+    - int value
+    + {static} List<Character> SUITS
+
+    + Card(char, int)
+    + char getSuit()
+    + int getFace()
+    + String toString()
+}
+
+class CardDeck {
+    + CardDeck(int)
+    + int getCardCount()
+    + Card getCard(int)
+    + void shufflePerfectly()
+    + String toString()
+}
+
+class CardHand {
+    + int getCardCount()
+    + Card getCard(int)
+    + void addCard(Card)
+    + Card play(int)
+    + String toString()
+}
+
+CardDeck -u-> "cards: *" Card
+CardHand -u-> "cards: *" Card
+
+@enduml

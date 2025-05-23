@@ -1,0 +1,39 @@
+@startuml twitter
+
+skinparam dpi 400
+
+class Tweet {
+    - int retweetCount
+    - String text
+
+    + Tweet(TwitterAccount, String)
+    + Tweet(TwitterAccount, Tweet)
+    + int getRetweetCount()
+    + String getText()
+    + Tweet getOriginalTweet()
+    + TwitterAccount getOwner()
+    + String toString()
+}
+
+class TwitterAccount {
+    - String username
+
+    + TwitterAccount(String)
+    + String getUsername()
+    + void follow(TwitterAccount)
+    + void unfollow(TwitterAccount)
+    + boolean isFollowing(TwitterAccount)
+    + boolean isFollowedBy(TwitterAccount)
+    + void tweet(String)
+    + void retweet(Tweet)
+    + Tweet getTweet(int)
+    + int getTweetCount()
+    + int getRetweetCount()
+    + String toString()
+}
+
+Tweet -l-> "originalTweet: 1" Tweet
+TwitterAccount -l-> "followers: *" TwitterAccount
+Tweet "tweets: *" -d- "owner: 1" TwitterAccount
+
+@enduml

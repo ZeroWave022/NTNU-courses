@@ -1,0 +1,66 @@
+@startuml stringmergingiterator
+
+skinparam SequenceMessageAlignment center
+mainframe **sd** StringMergingIterator
+
+' Can't be more than 300 to avoid cropping
+skinparam dpi 300
+
+actor "<U+0000>" as user
+participant ":StringMergingIterator" as smi
+participant "first:Iterator<String>" as first
+participant "second:Iterator<String>" as second
+
+user -> smi: hasNext()
+
+group hasNext 
+    smi -> first: hasNext()
+    first -->> smi: value
+
+    opt value = false
+        smi -> second: hasNext()
+        second -->> smi: value
+    end
+end
+
+smi -->> user: value
+
+...
+
+user -> smi: next()
+
+ref over smi, first, second
+    hasNext
+end ref
+
+opt value = false
+    smi -->> user: throw NoSuchElementException
+end
+
+smi -> first: hasNext()
+first -->> smi: value
+
+alt value = false
+    smi -> second: next()
+    second -->> smi: result
+else value = true
+    smi -> second: hasNext()
+    second -->> smi: value
+
+    alt value = false
+        smi -> first: next()
+        first -->> smi: result
+    else value = true
+        alt turnSwitch = true
+            smi -> first: next()
+            first -->> smi: result
+        else turnSwitch = false
+            smi -> second: next()
+            second -->> smi: result
+        end
+    end
+end
+
+smi -->> user: result
+
+@enduml

@@ -1,0 +1,17 @@
+@startuml partner
+
+skinparam dpi 400
+
+class Partner {
+    - String name
+
+    + Partner(String)
+    + String getName()
+    + Partner getPartner()
+    + void setPartner(Partner)
+    + String toString()
+}
+
+Partner -l> "partner: 1" Partner
+
+@enduml

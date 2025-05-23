@@ -1,0 +1,32 @@
+@startuml person
+
+skinparam dpi 400
+
+class Person {
+    - {static} char FEMALE_GENDER
+    - {static} char MALE_GENDER
+    - char gender
+    - String name
+
+    + Person(String, char)
+    + char getGender()
+    + String getName()
+    + Person getMother()
+    + void setMother(Person)
+    + Person getFather()
+    + void setFather(Person)
+    + int getChildCount()
+    + void addChild(Person)
+    + void removeChild(Person)
+    + Person getChild(int)
+    - {static} void validateGender(Person, char)
+    - {static} void validateNotSelfParent(Person, Person)
+    - {static} boolean isAncestorOf(Person, Person)
+    - boolean isAncestorOf(Person)
+}
+
+Person -l-> "children: *" Person
+Person -l-> "father: 1" Person
+Person -l-> "mother: 1" Person
+
+@enduml

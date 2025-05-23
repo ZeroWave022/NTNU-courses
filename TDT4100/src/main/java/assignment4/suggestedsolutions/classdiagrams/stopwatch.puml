@@ -1,0 +1,39 @@
+@startuml stopwatch
+
+skinparam dpi 400
+
+class StopWatch {
+    - int lapStartTime
+	- int lapTime
+	- int startTime
+	- int stopTime
+	- int ticks
+
+    + int getTicks()
+    + int getTime()
+    + int getLapTime()
+    + int getLastLapTime()
+    + void tick(int)
+    + void start()
+    + boolean isStarted()
+    + void stop()
+    + boolean isStopped()
+    + void lap()
+    + String toString()
+}
+
+class StopWatchManager {
+    + void tick(int)
+    + StopWatch newStopWatch(String)
+    + StopWatch getStopWatch(String)
+    + void removeStopWatch(String)
+    + Collection<StopWatch> getAllWatches()
+    + Collection<StopWatch> getStartedWatches()
+    + Collection<StopWatch> getStoppedWatches()
+    - StopWatch getStopWatch(String, boolean)
+    - Collection<StopWatch> getWatches(Boolean, Boolean)
+}
+
+StopWatchManager -u-> "stopWatches: *" StopWatch
+
+@enduml
