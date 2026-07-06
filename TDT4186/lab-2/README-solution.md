@@ -1,4 +1,4 @@
-# Lab 2
+# TDT4186: Lab 2
 
 ## Task 1: Baseline - Measuring Performance
 
